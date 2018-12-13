@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice-3.2</title>
+  <link rel="stylesheet" href="css//bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="sample">
+      <form v-if="!formSubmitted" @submit.prevent="formSubmitted = true">
+        <div class="progress">
+          <div class="progress-bar" :style="progress"></div>
+        </div>
+        <app-input
+          v-for="(item, ndx) in info"
+          :key="ndx"
+          :name="item.name"
+          :pattern="item.pattern"
+          :value="item.value"
+          @changedata="onChangeData(ndx, $event)">
+        </app-input>
+        <button
+          class="btn btn-primary"
+          :disabled="amountValidFields < info.length">
+          Send Data
+        </button>
+      </form>
+
+      <table v-else class="table table-bordered">
+        <tr v-for="(item, ndx) in info">
+          <td>{{ item.name }}</td>
+          <td>{{ item.value }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script src="js/vue.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
