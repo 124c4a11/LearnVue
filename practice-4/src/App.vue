@@ -37,7 +37,7 @@
 import AppInput from './components/AppInput.vue'
 
 export default {
-  el: '#app',
+  name: 'app',
   components: {
     AppInput
   },
