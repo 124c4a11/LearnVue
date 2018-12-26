@@ -20,6 +20,10 @@ export default {
     remove(state, id_product) {
       const pos = state.products.indexOf(id_product);
       if (pos !== -1) state.products.splice(pos, 1);
+    },
+
+    clear(state) {
+      state.products = [];
     }
   },
 
@@ -30,6 +34,10 @@ export default {
 
     remove(store, id_product) {
       store.commit('remove', id_product);
+    },
+
+    clear(store) {
+      store.commit('clear');
     }
   }
 };
